@@ -1,0 +1,74 @@
+#trainers {
+  max-width: 1920px;
+  margin: 0 auto;
+  /* padding: 120px 0 120px 380px; */
+  padding: 120px 380px 120px;
+}
+
+.slider {
+  display: flex;
+  gap: 40px;
+  /* overflow-x: scroll; */
+}
+
+.slider img {
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.h4 {
+font-weight: 600;
+font-size: 24px;
+line-height: 160%;
+color: var(--text-color-blue);
+margin-bottom: 10px;
+}
+
+.p {
+font-weight: 400;
+font-size: 18px;
+line-height: 160%;
+color: var(--text-color-blue-grey);
+margin-bottom: 20px;
+}
+
+.details {
+font-weight: 400;
+font-size: 18px;
+line-height: 160%;
+color: var(--text-color-accent);
+cursor: pointer;
+margin-bottom: 60px;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: end;
+  gap: 13px;
+}
+
+.arrow-div {
+  width: 33px;
+  height: 33px;
+  background-color: #230B34;
+  text-align: center;
+  line-height: 33px;
+  border-radius: 50%;
+}
+
+.arrow {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}

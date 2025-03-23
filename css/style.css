@@ -2,6 +2,7 @@
 @import "./hero.css";
 @import "./about.css";
 @import "./advertising.css";
+@import "./trainers.css";
 
 * {
   margin: 0;
@@ -17,6 +18,7 @@
 :root {
   --background-dark-blue: #141024;
   --background-accent: #d52027;
+  --background-light-grey: #F9F9F9;
   --text-color-blue: #141024;
   --text-color-blue-grey: #141024b3;
   --text-color-light: #fff;
