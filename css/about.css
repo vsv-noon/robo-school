@@ -1,0 +1,44 @@
+#about {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 120px 380px;
+
+  .h2 {
+    max-width: 891px;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 160%;
+    margin-bottom: 60px;  
+    color: var(--background-dark-blue);
+  
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+.ul-about {
+  display: flex;
+  padding: 0;
+  gap: 40px;
+}
+
+.ul-about-item {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--text-color-blue);
+
+  span {
+    font-weight: 600;
+    font-size: 70px;
+    line-height: 160%;
+    color: var(--text-color-accent);
+  }
+}
+
+
+
