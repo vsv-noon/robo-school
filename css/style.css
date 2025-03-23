@@ -4,6 +4,7 @@
 @import "./advertising.css";
 @import "./trainers.css";
 @import "./pricing.css";
+@import "./contacts.css";
 
 * {
   margin: 0;
