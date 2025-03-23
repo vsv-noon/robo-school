@@ -1,6 +1,7 @@
 @import "./header.css";
 @import "./hero.css";
 @import "./about.css";
+@import "./advertising.css";
 
 * {
   margin: 0;
@@ -16,8 +17,8 @@
 :root {
   --background-dark-blue: #141024;
   --background-accent: #d52027;
-  --text-color-blue: #141024b3;
+  --text-color-blue: #141024;
+  --text-color-blue-grey: #141024b3;
   --text-color-light: #fff;
   --text-color-accent: #d52027;
 }
-

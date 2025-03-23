@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 120px 380px;
 
-  .h2 {
+  .h3 {
     max-width: 891px;
     font-weight: 600;
     font-size: 30px;
@@ -30,7 +30,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 160%;
-  color: var(--text-color-blue);
+  color: var(--text-color-blue-grey);
 
   span {
     font-weight: 600;
