@@ -1,0 +1,62 @@
+#pricing {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 5px 380px 120px;
+}
+
+.h2-pricing {
+  margin-bottom: 80px;
+}
+
+.ul-price {
+  padding-left: 0;
+}
+
+.h3-pricing {
+
+font-weight: 600;
+font-size: 30px;
+line-height: 160%;
+text-align: center;
+margin-bottom: 63px;
+}
+
+.price {
+font-weight: 600;
+font-size: 50px;
+line-height: 160%;
+text-align: center;
+margin-bottom: 20px;
+}
+
+.p-pricing {
+font-weight: 400;
+font-size: 18px;
+line-height: 160%;
+text-align: center;
+}
+
+.price-item {
+  position: relative;
+  width: 360px;
+  height: 460px;
+  padding: 40px;
+  border: 1px solid var(--text-color-blue-grey);
+  border-radius: 20px;
+  color: var(--text-color-blue);
+  transition: all 0.3s;
+
+}
+
+.btn-price {
+  width: 280px;
+  position: absolute;
+  top: 340px;
+  left: 40px;
+}
+
+.price-item:hover {
+  transform: scale(1, 1.1);
+  color: var(--text-color-light);
+  background: var(--background-dark-blue);
+}

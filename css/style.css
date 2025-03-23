@@ -3,6 +3,7 @@
 @import "./about.css";
 @import "./advertising.css";
 @import "./trainers.css";
+@import "./pricing.css";
 
 * {
   margin: 0;
