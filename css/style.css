@@ -27,3 +27,7 @@
   --text-color-light: #fff;
   --text-color-accent: #d52027;
 }
+
+.lock {
+  overflow: hidden;
+}

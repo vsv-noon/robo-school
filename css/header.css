@@ -23,7 +23,7 @@ ul {
 
 }
 
-a {
+a {  
   font-weight: 400;
   font-size: 20px;
   color: var(--text-color-light);
@@ -35,14 +35,126 @@ a {
   color: var(--text-color-light);
 }
 
+.call-btn {
+  display: none;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  mix-blend-mode: normal;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.call-btn svg {
+  fill: var(--text-color-light);
+}
+
+.burger-btn {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  background: rgba(255, 255, 255, 0.08);
+  mix-blend-mode: normal;
+  text-align: center;
+  line-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.burger-btn span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 70%;
+  background: #fff;
+  transition: .25s ease-in-out;
+}
+
+.burger-btn span:nth-child(1) {
+  top: 14px;
+  left: 5px;
+  transform-origin: left center;
+}
+
+.burger-btn span:nth-child(2) {
+  top: 20px;
+  left: 5px;
+  transform-origin: left center;
+}
+
+.burger-btn span:nth-child(3) {
+  width: 35%;
+  top: 26px;
+  left: 5px;
+  transform-origin: left center;
+}
+
+.burger-btn.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 13px;
+  left: 10px;
+}
+
+.burger-btn.open span:nth-child(2) {
+  width: 0;
+ opacity: 0;
+}
+
+.burger-btn.open span:nth-child(3) {
+  width: 70%;
+  transform: rotate(-45deg);
+  top: 33px;
+  left: 10px;
+}
+
+
+
 @media (max-width: 320px) {
   .header {
+    /* display: none; */
+    padding: 10px 10px 0px;
+  }
+  
+  .logo {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .tel {    
+    font-size: 16px;
     display: none;
   }
 
-  .logo {
-    font-size: 18px;
+  .call-btn {
+    display: flex;
   }
 
-  .tel {font-size: 16px;}
+  .nav-list {
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    top: 0;
+    right: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background: var(--background-dark-blue);
+    transition: 0.5s ease-in-out;
+  }
+
+  .nav-list-open {
+    right: 0;
+  }
+
+  .burger-btn {
+    display: flex;
+  }
 }
