@@ -1,4 +1,5 @@
 #advertising {
+  /* display: none; */
   max-width: 1920px;
   margin: 0 auto;
   /* padding: 100px 380px; */
@@ -16,6 +17,8 @@
 .ul-advertising {
   padding: 0;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 55px;
   margin-bottom: 100px;
 }
@@ -80,6 +83,12 @@
 .ul-advertising:last-child span .info-tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+@media (max-width: 1190px) {
+  .ul-advertising li .tooltip-text {
+    left: -65px;
+  }
 }
 
 @media (max-width: 320px) {

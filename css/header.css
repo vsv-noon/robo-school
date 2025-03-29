@@ -1,12 +1,19 @@
 .header {
+  /* display: none; */
   max-width: 1920px;
   margin: 0 auto;
-  padding: 30px 100px;
+  padding: 30px 0;
+  background-color: var(--background-dark-blue);
+
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--background-dark-blue);
-
 }
 
 .logo {
@@ -116,7 +123,18 @@ a {
 
 
 
-@media (max-width: 320px) {
+@media (max-width: 860px) {
+  .tel {
+    display: none;
+  }
+
+  .call-btn {
+    display: flex;
+  }
+}
+
+/* @media (max-width: 320px) { */
+@media (max-width: 670px) {
   .header {
     /* display: none; */
     padding: 10px 10px 0px;

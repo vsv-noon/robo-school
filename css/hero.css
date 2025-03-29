@@ -1,5 +1,6 @@
 #hero {
-  width: 100%;
+  /* display: none; */
+  /* width: 100%; */
   max-width: 1920px;
   margin: 0 auto;
   /* display: flex; */
@@ -16,17 +17,6 @@
   /* background-size: 40.7%;
   background-position: 924px 60px; */
 
-}
-
-.container {
-  /* height: 100%; */
-  /* border: 1px solid red; */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  /* width: 100%; */
-  /* max-width: calc(100% - 380px * 2); */
-  max-width: 1160px;
 }
 
 .h1 {

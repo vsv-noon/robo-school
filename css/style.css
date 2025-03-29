@@ -8,6 +8,7 @@
 @import "./footer.css";
 
 * {
+  /* border: 1px solid red; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,4 +31,14 @@
 
 .lock {
   overflow: hidden;
+}
+
+.container {
+  /* height: 100%; */
+  /* border: 1px solid red; */
+  /* width: 100%; */
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
