@@ -1,22 +1,23 @@
 #advertising {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 100px 380px;
+  /* padding: 100px 380px; */
   background-color: var( --background-light-grey);
 }
 
-.h2 {
+#advertising .h2 {
   font-weight: 600;
   font-size: 50px;
   line-height: 160%;
   color: var(--text-color-blue);
-  margin-bottom: 60px;
+  margin: 100px 0 60px;
 }
 
 .ul-advertising {
   padding: 0;
   display: flex;
   gap: 55px;
+  margin-bottom: 100px;
 }
 
 .ul-advertising li {
@@ -70,6 +71,7 @@
   line-height: 56px;
   text-align: center;
   color: var(--text-color-blue);
+  background: var(--text-color-light);
   box-shadow: 0px 2px 8px rgba(20, 16, 36, 0.1);
   border-radius: 5px;
   transition: opacity 1s;
@@ -78,4 +80,48 @@
 .ul-advertising:last-child span .info-tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+@media (max-width: 320px) {
+  #advertising {
+    /* display: none; */
+  }
+
+  #advertising .h2 {
+    font-size: 30px;
+    text-align: center;
+    line-height: 140%;
+    margin: 40px 0 46px;
+  }
+
+  .ul-advertising {
+    flex-direction: column;
+    gap: 33px;
+    margin: 0 10px 40px;
+  }
+  
+  .ul-advertising li {
+    width: 300px;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+
+    span {
+      font-size: 20px;
+      line-height: 100%;
+    }
+  }
+
+  .ul-advertising:last-child span .info-tooltip {
+    left: 100px;
+    top: -5px;
+  }
+
+  .ul-advertising li .tooltip-text {
+    width: 224px;
+    left: -165px;
+    bottom: 35px;
+    font-size: 14px;
+    line-height: 52px;
+  }
 }

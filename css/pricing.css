@@ -1,15 +1,17 @@
 #pricing {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 5px 380px 142px;
 }
 
 .h2-pricing {
-  margin-bottom: 80px;
+  font-size: 50px;
+  font-weight: 600;
+  margin: 0px 0 80px;
 }
 
 .ul-price {
   padding-left: 0;
+  margin-bottom: 142px;
 }
 
 .h3-pricing {
@@ -38,6 +40,9 @@ text-align: center;
 
 .price-item {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 360px;
   height: 460px;
   padding: 40px;
@@ -52,11 +57,57 @@ text-align: center;
   width: 280px;
   position: absolute;
   top: 340px;
-  left: 40px;
+  right: 40px;
 }
 
 .price-item:hover {
   transform: scale(1, 1.1);
   color: var(--text-color-light);
   background: var(--background-dark-blue);
+}
+
+@media (max-width: 320px) {
+  #pricing {
+    /* display: none; */
+  }
+
+  .h2-pricing {
+    max-width: 260px;
+    font-size: 30px;
+    text-align: center;
+    margin: 60px 0 60px;
+  }
+
+  .ul-price {
+    flex-direction: column;
+    gap: 35px;
+    margin-bottom: 55px;
+  }
+
+  .price-item {
+    width: 300px;
+    height: 394px;
+    padding: 25px;
+
+  }
+
+  .h3-pricing {
+    margin: 10px 0 40px;
+  }
+
+  .price {
+    margin-bottom: 20px;
+  }
+  
+  .p-pricing {
+    /* max-width: 195px; */
+    font-size: 16px;
+  }
+
+  .btn-price {
+    width: 260px;
+
+    top: 290px;
+    right: 20px;
+  }
 }

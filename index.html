@@ -1,154 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>ROBO.SCHOOl</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
-  <title>ROBO.SCHOOl</title>
-</head>
-
-<body>
-  <header class="header">
-    <p class="logo">robo.school</p>
-    <nav class="navbar">
-      <ul>
-        <li><a href="#about">О школе</a></li>
-        <li><a href="#trainers">Тренеры</a></li>
-        <li><a href="#pricing">Стоимость</a></li>
-      </ul>
-    </nav>
-    <a class="tel" href="tel:+78000001122">+7 800 000 11 22</a>
-  </header>
-  <main class="main">
-    <section id="hero">
-      <div class="left-column">
-        <h1 class="h1">ROBO SCHOOL</h1>
-        <p class="p-hero">Курсы повышения квалификации по робототехнике для педагогов начальной школы</p>
-        <a class="button" href="#contacts">Записаться на курс</a>
-      </div>
-      <div class="right-column"></div>
-    </section>
-    <section id="about">
-      <h3 class="h3-about">Robo School<span> – учреждение для формирования кадрового педагогического резерва в сфере
-          робототехники<br> и программирования</span></h3>
-      <ul class="ul-about">
-        <li class="ul-about-item"><span>10</span>УМК по различным направлениям по робототехнике</li>
-        <li class="ul-about-item"><span>20</span>Школ, в которых запущена робототехника</li>
-        <li class="ul-about-item"><span>100</span>Педагогов прошедших курсы повышения квалификации</li>
-        <li class="ul-about-item"><span>10 000</span>Обученных детей на базе собственных центров</li>
-      </ul>
-    </section>
-    <section id="advertising">
-      <h2 class="h2">Что вы получите после курса</h2>
-      <ul class="ul-advertising">
-        <li><span>Удостоверение</span>Дающее право преподавать робототехнику для детей 6-12 лет в образовательных
-          учреждениях</li>
-        <li><span>Знания</span>По основам разработки учебно-методических комплексов<br>по робототехнике и программированию</li>
-        <li>
-          <span>Практику<span class="info-tooltip">i
-            <span class="tooltip-text">При наличии свободных мест</span>
-          </span>
-          </span>
-          Возможность пройти практику<br>по преподаванию робототехники на базе R:ED LAB (в оффлайн
-          или онлайн формате)</li>
-      </ul>
-    </section>
-    <section id="trainers">
-      <h2 class="h2 h2-trainers">Профессиональные тренеры</h2>
-      <div class="slider-wrapper">
-        <div class="slider-transport">
-          <div class="slider">
-            <div class="slide">
-              <img src="./assets/images/unsplash_Zz5LQe-VSMY.jpg" alt="Ирина Лайм">
-              <h4 class="h4">Ирина Лайм</h4>
-              <p class="p">преподаватель по робототехнике</p>
-              <p class="details">Подробнее</p>
-            </div>
-            <div class="slide">
-              <img src="./assets/images/unsplash_IF9TK5Uy-KI.jpg" alt="Марина Орлова">
-              <h4 class="h4">Марина Орлова</h4>
-              <p class="p">преподаватель по робототехнике</p>
-              <p class="details">Подробнее</p>
-            </div>
-            <div class="slide">
-              <img src="./assets/images/unsplash_OhKElOkQ3RE.jpg" alt="Максим Петров">
-              <h4 class="h4">Максим Петров</h4>
-              <p class="p">преподаватель по программированию</p>
-              <p class="details">Подробнее</p>
-            </div>
-            <div class="slide">
-              <img src="./assets/images/unsplash_rriAI0nhcbc.jpg" alt="Константин Назаров">
-              <h4 class="h4">Константин Назаров</h4>
-              <p class="p">преподаватель по робототехнике</p>
-              <p class="details">Подробнее</p>
-            </div>
-            <div class="slide">
-              <img src="./assets/images/unsplash_Z_bTArFy6ks.jpg" alt="Лиза Весенняя">
-              <h4 class="h4">Лиза Весенняя</h4>
-              <p class="p">преподаватель по программированию</p>
-              <p class="details">Подробнее</p>
+  <body>
+    <header class="header">
+      <p class="logo">robo.school</p>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#about">О школе</a></li>
+          <li><a href="#trainers">Тренеры</a></li>
+          <li><a href="#pricing">Стоимость</a></li>
+        </ul>
+      </nav>
+      <a class="tel" href="tel:+78000001122"
+        >+7&nbsp;800&nbsp;000&nbsp;11&nbsp;22</a
+      >
+    </header>
+    <main class="main">
+      <section id="hero">
+        <div class="container">
+          <h1 class="h1">ROBO SCHOOL</h1>
+          <p class="p-hero">
+            Курсы повышения квалификации по робототехнике для педагогов
+            начальной школы
+          </p>
+          <a class="button" href="#contacts">Записаться на курс</a>
+        </div>
+      </section>
+      <section id="about">
+        <div class="container">
+          <h3 class="h3-about">
+            Robo School<span>
+              – учреждение для формирования кадрового педагогического резерва в
+              сфере робототехники<br />
+              и программирования</span
+            >
+          </h3>
+          <ul class="ul-about">
+            <li class="ul-about-item">
+              <span>10</span>УМК по различным направлениям по робототехнике
+            </li>
+            <li class="ul-about-item">
+              <span>20</span>Школ, в которых запущена робототехника
+            </li>
+            <li class="ul-about-item">
+              <span>100</span>Педагогов прошедших курсы повышения квалификации
+            </li>
+            <li class="ul-about-item">
+              <span>10&nbsp;000</span>Обученных детей на базе собственных
+              центров
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="advertising">
+        <div class="container">
+          <h2 class="h2">Что вы получите после курса</h2>
+          <ul class="ul-advertising">
+            <li>
+              <span>Удостоверение</span>Дающее право преподавать робототехнику
+              для детей 6-12 лет в образовательных учреждениях
+            </li>
+            <li>
+              <span>Знания</span>По основам разработки учебно-методических
+              комплексов<br />по робототехнике и программированию
+            </li>
+            <li>
+              <span
+                >Практику<span class="info-tooltip"
+                  >i
+                  <span class="tooltip-text">При наличии свободных мест</span>
+                </span>
+              </span>
+              Возможность пройти практику<br />по преподаванию робототехники на
+              базе R:ED LAB (в оффлайн или онлайн формате)
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="trainers">
+        <h2 class="h2 h2-trainers">Профессиональные тренеры</h2>
+        <div class="slider-wrapper">
+          <div class="slider-transport">
+            <div class="slider">
+              <div class="slide">
+                <img
+                  src="./assets/images/unsplash_Zz5LQe-VSMY.jpg"
+                  alt="Ирина Лайм"
+                />
+                <h4 class="h4">Ирина Лайм</h4>
+                <p class="p">преподаватель по робототехнике</p>
+                <p class="details">Подробнее</p>
+              </div>
+              <div class="slide">
+                <img
+                  src="./assets/images/unsplash_IF9TK5Uy-KI.jpg"
+                  alt="Марина Орлова"
+                />
+                <h4 class="h4">Марина Орлова</h4>
+                <p class="p">преподаватель по робототехнике</p>
+                <p class="details">Подробнее</p>
+              </div>
+              <div class="slide">
+                <img
+                  src="./assets/images/unsplash_OhKElOkQ3RE.jpg"
+                  alt="Максим Петров"
+                />
+                <h4 class="h4">Максим Петров</h4>
+                <p class="p">преподаватель по программированию</p>
+                <p class="details">Подробнее</p>
+              </div>
+              <div class="slide">
+                <img
+                  src="./assets/images/unsplash_rriAI0nhcbc.jpg"
+                  alt="Константин Назаров"
+                />
+                <h4 class="h4">Константин Назаров</h4>
+                <p class="p">преподаватель по робототехнике</p>
+                <p class="details">Подробнее</p>
+              </div>
+              <div class="slide">
+                <img
+                  src="./assets/images/unsplash_Z_bTArFy6ks.jpg"
+                  alt="Лиза Весенняя"
+                />
+                <h4 class="h4">Лиза Весенняя</h4>
+                <p class="p">преподаватель по программированию</p>
+                <p class="details">Подробнее</p>
+              </div>
             </div>
           </div>
-          <div class="arrow-container">
-            <div class="arrow-div">
+          <div class="slider-buttons">
+            <button class="arrow-left">
               <i class="arrow left"></i>
-            </div>
-            <div class="arrow-div">  
+            </button>
+            <button class="arrow-right">
               <i class="arrow right"></i>
-            </div>
+            </button>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="pricing">
-      <h2 class="h2 h2-pricing">Выберите нужный пакет</h2>
-      <ul class="ul-price">
-        <li class="price-item">
-          <h3 class="h3-pricing">– PRO –</h3>
-          <p class="price">20.000 ₽</p>
-          <p class="p-pricing">УМК по робототетхнике и программированию</p>
-          <a class="button btn-price" href="#contacts">Оставить заявку</a>
-        </li>
-        <li class="price-item">
-          <h3 class="h3-pricing">– ROBO –</h3>
-          <p class="price">15.000 ₽</p>
-          <p class="p-pricing">УМК по робототетхнике</p>
-          <a class="button btn-price" href="#contacts">Оставить заявку</a>
-        </li>
-        <li class="price-item">
-          <h3 class="h3-pricing">– PROG –</h3>
-          <p class="price">10.000 ₽</p>
-          <p class="p-pricing">УМК по программированию</p>
-          <a class="button btn-price" href="#contacts">Оставить заявку</a>
-        </li>
-      </ul>
-    </section>
-    <section id="contacts">
-      <div class="contacts-text">
-        <h3 class="h3 h3-contacts">Запишитесь на курс<br>со скидкой 10%</h3>
-        <p class="p p-contacts">Акция действительна до 10 марта 2022 года</p>  
-      </div>
-      <form class="contacts-form" action="">
-        <input type="text" name="" id="name" placeholder="Имя" autocomplete="off">
-        <input type="text" name="" id="phone" placeholder="Телефон" autocomplete="off">
-        <input type="text" name="" id="mail" placeholder="E-mail" autocomplete="off">
-        <button class="submit-btn" type="submit">Оформить заявку</button>
-      </form>
-    </section>
-  </main>
-  <footer id="footer">
-    <div>
+      </section>
+      <section id="pricing">
+        <div class="container">
+          <h2 class="h2 h2-pricing">Выберите нужный пакет</h2>
+          <ul class="ul-price">
+            <li class="price-item">
+              <h3 class="h3-pricing">– PRO –</h3>
+              <p class="price">20.000 ₽</p>
+              <p class="p-pricing">УМК по робототетхнике и программированию</p>
+              <a class="button btn-price" href="#contacts">Оставить заявку</a>
+            </li>
+            <li class="price-item">
+              <h3 class="h3-pricing">– ROBO –</h3>
+              <p class="price">15.000 ₽</p>
+              <p class="p-pricing">УМК по робототетхнике</p>
+              <a class="button btn-price" href="#contacts">Оставить заявку</a>
+            </li>
+            <li class="price-item">
+              <h3 class="h3-pricing">– PROG –</h3>
+              <p class="price">10.000 ₽</p>
+              <p class="p-pricing">УМК по программированию</p>
+              <a class="button btn-price" href="#contacts">Оставить заявку</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="contacts">
+        <div class="container-contacts">
+          <div class="contacts-text">
+            <h3 class="h3 h3-contacts">
+              Запишитесь на курс<br />со скидкой 10%
+            </h3>
+            <p class="p p-contacts">
+              Акция действительна до 10 марта 2022 года
+            </p>
+          </div>
+          <form class="contacts-form" action="">
+            <input
+              type="text"
+              name=""
+              id="name"
+              placeholder="Имя"
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              name=""
+              id="phone"
+              placeholder="Телефон"
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              name=""
+              id="mail"
+              placeholder="E-mail"
+              autocomplete="off"
+            />
+            <button class="submit-btn" type="submit">Оформить заявку</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div></div>
       <p class="logo">robo.school</p>
-      <p class="copyright">&copy; ROBO.SCHOOL</p>
-    </div>
-    <a class="tel" href="tel:+78000001122">+7 800 000 11 22</a>
-  </footer>
+      <p class="copyright">&copy;&nbsp;ROBO.SCHOOL</p>
+      <a class="tel" href="tel:+78000001122"
+        >+7&nbsp;800&nbsp;000&nbsp;11&nbsp;22</a
+      >
+    </footer>
 
-</body>
-
+    <script src="./script/index.js" type="module"></script>
+  </body>
 </html>
