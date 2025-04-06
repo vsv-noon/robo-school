@@ -1,0 +1,201 @@
+.modal {
+  position: fixed;
+  padding: 40px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 940px;
+  height: 768px;
+  background: var(--text-color-light);
+  border-radius: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;  
+}
+
+.h5-modal {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  /* animation: opacityOn .5s; */
+}
+
+.modal-close-btn {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  color: rgba(20, 16, 36, 0.7);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.text-description-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.img-modal {
+  width: 160px;
+  height: 222px;
+  border-radius: 20px;
+}
+
+.description-modal {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.name-modal {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 160%;
+  color: #141024;
+}
+
+.occupation-modal {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  /* identical to box height, or 29px */
+
+  color: rgba(20, 16, 36, 0.7);
+}
+
+.tabs-control {
+  font-size: 20px;
+  line-height: 360%;
+  padding-left: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(20, 16, 36, 0.11);
+}
+
+.tabs-container {
+  /* margin-bottom: 40px; */
+  height: 330px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.tabs-container::-webkit-scrollbar {
+  /* max-width: 13px; */
+}
+
+.control-item {
+  cursor: pointer;
+}
+
+.control-item.active {
+  color: red;
+  pointer-events: none;
+}
+
+.tab-education ul {
+  /* display: flex; */
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 0;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 500px) {
+  .modal {
+    width: 300px;
+    height: 489px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .modal-close-btn {
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+
+  }
+
+  .span-text {
+    display: none;
+  }
+
+  .span-line {
+    position: absolute;
+    left: 5px;
+    height: 2px;
+    width: 60%;
+    background: #000;
+  }
+
+  .span-line {
+    transform: rotate(-45deg);
+  }
+
+  .span-line:nth-child(2) {
+    /* top: 0; */
+    transform: rotate(45deg);
+  }
+
+  .description-modal {
+    margin-top: 13px;
+    gap: 10px;
+  }
+
+  .text-description-modal {
+    gap: 5px;
+  }
+
+  .img-modal {
+    width: 60px;
+    height: 88px;
+    border-radius: 5px;
+  }
+
+  .name-modal {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .occupation-modal {
+    font-size: 12px;
+  }
+
+  .tabs-control {
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 10px;
+    font-size: 16px;
+    color: #fff;
+    background: red;
+    height: 46px;
+    line-height: 46px;
+  }
+  
+  .control-item.active {
+    color: #fff;
+    pointer-events: all;
+  }
+
+  .tabs-container {
+    height: 180px;
+  }
+
+  .tab-education ul {
+    font-size: 14px;
+    gap: 0;
+  }
+
+  .h5-modal {
+    font-size: 16px;
+  }
+}

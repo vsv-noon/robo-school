@@ -121,6 +121,12 @@ a {
   left: 10px;
 }
 
+@media (max-width: 1800px) {
+  .header {
+    padding: 30px 10px;
+  }
+}
+
 
 
 @media (max-width: 860px) {

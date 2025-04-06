@@ -3,10 +3,13 @@
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  background: url(./../assets/images/contacts-bg.png) var(--background-accent);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
+  /* background: url(./../assets/images/contacts-bg.png) var(--background-accent); */
+  /* background-repeat: no-repeat; */
+  /* background-position: bottom; */
+  background: url(./../assets/images/contacts-bg_2.png) var(--background-accent);
+  background-repeat: repeat no-repeat;
+  background-size: 74%;
+  background-position: 0 bottom;
 }
 
 .container-contacts {
@@ -71,6 +74,12 @@
   text-align: center;
   color: #ffffff;
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  #contacts {
+    padding: 0 10px;
+  }
 }
 
 /* @media (max-width: 320px) { */

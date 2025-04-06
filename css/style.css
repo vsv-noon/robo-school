@@ -6,6 +6,17 @@
 @import "./pricing.css";
 @import "./contacts.css";
 @import "./footer.css";
+@import "./modal.css";
+
+:root {
+  --background-dark-blue: #141024;
+  --background-accent: #d52027;
+  --background-light-grey: #F9F9F9;
+  --text-color-blue: #141024;
+  --text-color-blue-grey: #141024b3;
+  --text-color-light: #fff;
+  --text-color-accent: #d52027;
+}
 
 * {
   /* border: 1px solid red; */
@@ -19,26 +30,31 @@
   font-style: normal;
 }
 
-:root {
-  --background-dark-blue: #141024;
-  --background-accent: #d52027;
-  --background-light-grey: #F9F9F9;
-  --text-color-blue: #141024;
-  --text-color-blue-grey: #141024b3;
-  --text-color-light: #fff;
-  --text-color-accent: #d52027;
-}
 
 .lock {
   overflow: hidden;
 }
 
 .container {
-  /* height: 100%; */
-  /* border: 1px solid red; */
-  /* width: 100%; */
   max-width: 1160px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s linear;
+}
+
+.overlay-on {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(41, 41, 41, 0.6);
 }

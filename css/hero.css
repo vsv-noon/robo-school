@@ -51,6 +51,12 @@
   margin-bottom: 411px;
 }
 
+@media (max-width: 1200px) {
+  #hero {
+    padding: 0 10px;
+  }
+}
+
 @media (max-width: 320px) {
   #hero {
     /* display: none; */

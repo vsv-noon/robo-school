@@ -49,6 +49,12 @@
   color: var(--text-color-accent);
 }
 
+@media (max-width: 1200px) {
+  #about {
+    padding: 0 10px;
+  }
+}
+
 @media (max-width: 320px) {
   #about {
     /* display: none; */

@@ -12,8 +12,9 @@ const slider = () => {
     const sliderTransportWidth = sliderTransport.offsetWidth;
     const sliderHiddenWidth = slider.offsetWidth - sliderTransportWidth;
     const isMobile = previousWidth <= 768;
-    const sliderStep = sliderHiddenWidth / (isMobile ? 2 : 1);
-    const correctSliderStep = -sliderStep / 4;
+    // const sliderStep = sliderHiddenWidth / (isMobile ? 2 : 1);
+    const sliderStep = sliderHiddenWidth / (previousWidth <= 800 ? 4 : 1);
+    const correctSliderStep = -sliderStep / 5;
 
     if (event.target.closest('.arrow-left')) {
       sliderPosition += sliderStep;

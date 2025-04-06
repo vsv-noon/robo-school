@@ -67,6 +67,12 @@
   background: var(--background-dark-blue);
 }
 
+@media (max-width: 1200px) {
+  #pricing {
+    padding: 0 10px;
+  }
+}
+
 @media (max-width: 320px) {
   #pricing {
     /* display: none; */

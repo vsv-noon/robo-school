@@ -85,7 +85,11 @@
   opacity: 1;
 }
 
-@media (max-width: 1190px) {
+@media (max-width: 1200px) {
+  #advertising {
+    padding: 0 10px;
+  }
+  
   .ul-advertising li .tooltip-text {
     left: -65px;
   }
