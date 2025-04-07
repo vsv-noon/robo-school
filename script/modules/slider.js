@@ -8,6 +8,42 @@ const slider = () => {
   let sliderPosition = 0;
   let previousWidth = window.innerWidth;
 
+  let slides = [];
+
+  fetch('./data/trainers.json')
+    .then((response) => response.json())
+    .then((data) => {
+      slides.push(...data);
+      addSlidesToHTML();
+    });
+
+ const addSlidesToHTML = () => {
+    if (slides != null) {
+      slider.innerHTML = '';
+
+      slides.forEach((card) => {
+        const newCard = createCardElement(card);
+        slider.appendChild(newCard);
+      });
+    }
+  }
+
+  const createCardElement = (card) => {
+    let newCard = document.createElement('div');
+    newCard.id = `${card.id}`;
+    newCard.classList.add('slide');
+    newCard.innerHTML =
+    `
+      <img src="${card.img}" alt="${card.name}"/>
+      <h4 class="h4">${card.name}</h4>
+      <p class="p">${card.occupation}</p>
+      <p class="details">Подробнее</p>
+    `
+
+    return newCard;
+  }
+
+
   const sliderControl = (event) => {
     const sliderTransportWidth = sliderTransport.offsetWidth;
     const sliderHiddenWidth = slider.offsetWidth - sliderTransportWidth;

@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "name": "Ирина Лайм",
+    "occupation": "преподаватель по робототехнике",
+    "img": "./assets/images/irina-lime.jpg",
+    "education": {
+      "date start": "Сентябрь 1998",
+      "date finish": "Июнь 2003",
+      "university": "Московский Государственный Университет им М. Ломоносова",
+      "faculty": "Компьютерных наук и технологий",
+      "speciality": "Компьютерные науки",
+      "study form": "Очная"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Марина Орлова",
+    "occupation": "преподаватель по робототехнике",
+    "img": "./assets/images/marina-orlova.jpg",
+    "education": {
+      "date start": "Сентябрь 1995",
+      "date finish": "Июнь 2000",
+      "university": "Санкт-Петербургский политехнический университет Петра Великого",
+      "faculty": "Компьютерных наук и технологий",
+      "speciality": "Математика и компьютерные науки",
+      "study form": "Очная"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Максим Петров",
+    "occupation": "преподаватель по программированию",
+    "img": "./assets/images/maksim-petrov.jpg",
+    "education": {
+      "date start": "Сентябрь 1991",
+      "date finish": "Июнь 1996",
+      "university": "Московский Физико-Математический Институт им. Баумана",
+      "faculty": "Физико-Математический",
+      "speciality": "Физика",
+      "study form": "Очная"
+    }
+    
+  },
+  {
+    "id": 4,
+    "name": "Константин Назаров",
+    "occupation": "преподаватель по робототехнике",
+    "img": "./assets/images/konstantin-nazarov.jpg",
+    "education": {
+      "date start": "Сентябрь 1995",
+      "date finish": "Июнь 2000",
+      "university": "Санкт-Петербургский политехнический университет Петра Великого",
+      "faculty": "Компьютерных наук и технологий",
+      "speciality": "Математика и компьютерные науки",
+      "study form": "Очная"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Лиза Весенняя",
+    "occupation": "преподаватель по программированию",
+    "img": "./assets/images/liza-vesennyaya.jpg",
+    "education": {
+      "date start": "Сентябрь 2000",
+      "date finish": "Июнь 2005",
+      "university": "Санкт-Петербургский Государственный Университет",
+      "faculty": "Механико-Математический",
+      "speciality": "Математика",
+      "study form": "Очная"
+    }
+  }
+]
