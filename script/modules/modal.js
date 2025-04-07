@@ -47,4 +47,19 @@ document.addEventListener('click', (event) => {
   }
 })
 
+const tabsControlButton = document.querySelector('.tabs-control');
+
+if (window.innerWidth <= 500) {
+
+}
+tabsControlButton.addEventListener('click', () => {
+  console.log(tabsControlButton.scrollHeight)
+  console.log(tabsControlButton.style.height)
+  if (tabsControlButton.style.height === tabsControlButton.scrollHeight + 'px') {
+    tabsControlButton.style.height = 47 + 'px';
+  } else {
+    tabsControlButton.style.height = tabsControlButton.scrollHeight + 'px';
+  }
+})
+
 export { showPopup };

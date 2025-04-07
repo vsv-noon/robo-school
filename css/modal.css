@@ -50,6 +50,10 @@
   border-radius: 20px;
 }
 
+.icons-container svg {
+  cursor: pointer;
+}
+
 .description-modal {
   display: flex;
   gap: 40px;
@@ -114,6 +118,7 @@
     height: 489px;
     padding: 20px;
     border-radius: 10px;
+    overflow: hidden;
   }
 
   .modal-close-btn {
@@ -172,13 +177,13 @@
   .tabs-control {
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    gap: 10px;
+    gap: 0px;
     font-size: 16px;
     color: #fff;
     background: red;
     height: 46px;
     line-height: 46px;
+    transition: all .3s ease-in-out;
   }
   
   .control-item.active {
@@ -187,15 +192,18 @@
   }
 
   .tabs-container {
-    height: 180px;
+    /* height: 180px; */
+    max-height: 230px;
   }
 
   .tab-education ul {
     font-size: 14px;
     gap: 0;
+    margin-bottom: 20px;
   }
 
   .h5-modal {
     font-size: 16px;
+    margin-bottom: 10px;
   }
 }
