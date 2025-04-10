@@ -88,11 +88,20 @@
   /* margin-bottom: 40px; */
   height: 330px;
   overflow-y: scroll;
-  scrollbar-width: thin;
+  /* scrollbar-width: thin; */
 }
 
 .tabs-container::-webkit-scrollbar {
-  /* max-width: 13px; */
+  width: 5px;
+}
+
+.tabs-container::-webkit-scrollbar-track {
+  background: var(--text-color-light-grey);
+}
+
+.tabs-container::-webkit-scrollbar-thumb {
+  background: var(--background-dark-blue);
+  cursor: pointer;
 }
 
 .control-item {
@@ -104,7 +113,13 @@
   pointer-events: none;
 }
 
-.tab-education ul {
+.control-item.inactive {
+  color: var(--text-color-light-grey);
+  pointer-events: none;
+}
+
+.tab-education ul,
+.tab-experience ul {
   /* display: flex; */
   flex-direction: column;
   gap: 10px;
@@ -183,6 +198,7 @@
     background: red;
     height: 46px;
     line-height: 46px;
+    overflow: hidden;
     transition: all .3s ease-in-out;
   }
   

@@ -12,8 +12,23 @@
 .slider-wrapper {
   width: 100%;
   max-width: 1160px;
-  /* overflow-x: scroll; */
+  /* overflow-x: auto; */
 }
+
+/* .slider-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.slider-wrapper::-webkit-scrollbar-track-piece:end {
+  margin-right: 800px;
+  background: var(--background-light-grey);
+}
+
+.slider-wrapper::-webkit-scrollbar-thumb {
+  background: var(--text-color-blue);
+  border-radius: 40px;
+  cursor: pointer;
+} */
 
 .slider {
   width: 1960px;

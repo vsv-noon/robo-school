@@ -1,11 +1,11 @@
-const modalCard = document.querySelector('.modal');
+const modalCard = document.querySelector(".modal");
 
 const getScrollbarWidth = () => {
-  let div = document.createElement('div');
-  div.style.width = '100px';
-  div.style.height = '100px';
-  div.style.overflowY = 'scroll';
-  div.style.visibility = 'hidden';
+  let div = document.createElement("div");
+  div.style.width = "100px";
+  div.style.height = "100px";
+  div.style.overflowY = "scroll";
+  div.style.visibility = "hidden";
   document.body.append(div);
   let scrollbarWidth = div.offsetWidth - div.clientWidth;
   div.remove();
@@ -16,14 +16,14 @@ const getScrollbarWidth = () => {
 const scroll = getScrollbarWidth();
 
 const createElementPopup = (currentName) => {
-  modalCard.classList.add('modal');
+  modalCard.classList.add("modal");
 
-  fetch('./data/trainers.json')
-  .then((response) => response.json())
-  .then((jsonData) => {
-    let thisCard = jsonData.filter((value) => value.name == currentName)[0];    
+  fetch("./data/trainers.json")
+    .then((response) => response.json())
+    .then((jsonData) => {
+      let thisCard = jsonData.filter((value) => value.name == currentName)[0];
 
-    modalCard.innerHTML = `
+      modalCard.innerHTML = `
       <button class="modal-close-btn">
         <span class="span-text">Закрыть</span>
 
@@ -118,76 +118,120 @@ const createElementPopup = (currentName) => {
             </ul>
           </div>
           <div class="tab-experience"></div>
-          <div class="tab-reward"></div>
+          <div class="tab-rewards"></div>
         </div>
       
-    `
-  })
+    `;
+    });
   document.body.appendChild(modalCard);
-}
+};
 
 const fillPopupFields = (currentName) => {
-  fetch('./data/trainers.json')
+  fetch("./data/trainers.json")
     .then((response) => response.json())
     .then((jsonData) => {
       let thisCard = jsonData.filter((value) => value.name == currentName)[0];
 
-      console.log(thisCard);
+      // console.log(thisCard);
 
-      document.querySelector('.img-modal').src = thisCard.img;
-      document.querySelector('.name-modal').innerHTML = thisCard.name;
-      document.querySelector('.occupation-modal').innerHTML = thisCard.occupation;
-      document.querySelector('.study-date').innerHTML = `${thisCard.education["date start"]} — ${thisCard.education["date finish"]}`;
-      document.querySelector('.university').innerHTML = thisCard.education.university;
-      document.querySelector('.faculty').innerHTML = `Факультет: ${thisCard.education.faculty}`;
-      document.querySelector('.speciality').innerHTML = `Специальность: ${thisCard.education.speciality}`;
-      document.querySelector('.study-form').innerHTML = `Форма обучения: ${thisCard.education["study form"]}`;
-    })
-}
+      document.querySelector(".img-modal").src = thisCard.img;
+      document.querySelector(".name-modal").innerHTML = thisCard.name;
+      document.querySelector(".occupation-modal").innerHTML =
+        thisCard.occupation;
+      document.querySelector(
+        ".study-date"
+      ).innerHTML = `${thisCard.education["date start"]} — ${thisCard.education["date finish"]}`;
+      document.querySelector(".university").innerHTML =
+        thisCard.education.university;
+      document.querySelector(
+        ".faculty"
+      ).innerHTML = `Факультет: ${thisCard.education.faculty}`;
+      document.querySelector(
+        ".speciality"
+      ).innerHTML = `Специальность: ${thisCard.education.speciality}`;
+      document.querySelector(
+        ".study-form"
+      ).innerHTML = `Форма обучения: ${thisCard.education["study form"]}`;
+
+      if (thisCard.experience) {
+        document.querySelector(".experience").classList.remove("inactive");
+        document.querySelector('.work-dates').innerHTML = `${thisCard.experience['date start']} — ${thisCard.experience['date finish']}`;
+        document.querySelector('.company').innerHTML = thisCard.experience.company;
+      } else {
+        document.querySelector(".experience").classList.add("inactive");
+      }
+
+      if (thisCard.rewards) {
+        document.querySelector(".rewards").classList.remove("inactive");
+        thisCard.rewards.forEach((el) => {
+          document.querySelector(".ul-rewards").innerHTML = "";
+          let item = document.createElement("li");
+          item.classList.add("li-rewards");
+          item.innerHTML = el;
+
+          document.querySelector(".ul-rewards").appendChild(item);
+        });
+      } else {
+        document.querySelector(".rewards").classList.add("inactive");
+        // document.querySelector(".ul-rewards").innerHTML = "";
+      }
+    });
+};
 
 const showPopup = () => {
-  document.addEventListener('click', (event) => {
-    let target = event.target.closest('.slide');
+  document.addEventListener("click", (event) => {
+    let target = event.target.closest(".slide");
     // console.log({target});
 
     if (target) {
-      modalCard.classList.add('visible');
-      document.querySelector('.overlay').classList.add('overlay-on');
-      document.body.style.overflow = 'hidden';
+      modalCard.classList.add("visible");
+      document.querySelector(".overlay").classList.add("overlay-on");
+      document.body.style.overflow = "hidden";
       document.body.style.marginRight = `${scroll}px`;
+      // document.querySelector(".ul-rewards").innerHTML = "";
 
       fillPopupFields(target.children[1].textContent);
 
       // createElementPopup(target.children[1].textContent);
-      // console.log(target.children[1].textContent)
+      // console.log(target.children[1].textContent);
+
+      document.querySelector(".education").classList.add("active");
+      document.querySelector(".experience").classList.remove("active");
+      document.querySelector(".rewards").classList.remove("active");
+      document.querySelector(".tab-education").style.display = "block";
+      document.querySelector(".tab-experience").style.display = "none";
+      document.querySelector(".tab-rewards").style.display = "none";
     }
   });
 };
 
-document.addEventListener('click', (event) => {
-  let target = event.target.closest('.modal-close-btn');
+document.addEventListener("click", (event) => {
+  let target = event.target.closest(".modal-close-btn");
   let classes = event.target.classList;
 
-  if (target || classes.contains('overlay-on')) {
-    modalCard.classList.remove('visible');
-    document.querySelector('.overlay').classList.remove('overlay-on');
-    setTimeout(() => {      
-      document.body.style.marginRight = '0px';
-      document.body.style.overflow = '';
+  if (target || classes.contains("overlay-on")) {
+    modalCard.classList.remove("visible");
+    document.querySelector(".overlay").classList.remove("overlay-on");
+    setTimeout(() => {
+      document.body.style.marginRight = "0px";
+      document.body.style.overflow = "";
     }, 500);
   }
-})
+});
 
-const tabsControlButton = document.querySelector('.tabs-control');
+const tabsControlButton = document.querySelector(".tabs-control");
 
-tabsControlButton.addEventListener('click', () => {
-  if (window.innerWidth <= 500) {  
-    if (tabsControlButton.style.height === tabsControlButton.scrollHeight + 'px') {
-      tabsControlButton.style.height = 47 + 'px';
+tabsControlButton.addEventListener("click", () => {
+  if (window.innerWidth <= 500) {
+    if (
+      tabsControlButton.style.height ===
+      tabsControlButton.scrollHeight + "px"
+    ) {
+      tabsControlButton.style.height = 47 + "px";
     } else {
-      tabsControlButton.style.height = tabsControlButton.scrollHeight + 'px';
+      tabsControlButton.style.height = tabsControlButton.scrollHeight + "px";
     }
   }
-})
+});
 
 export { showPopup };

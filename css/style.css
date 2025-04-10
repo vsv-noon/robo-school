@@ -15,6 +15,7 @@
   --text-color-blue: #141024;
   --text-color-blue-grey: #141024b3;
   --text-color-light: #fff;
+  --text-color-light-grey: rgba(20, 16, 36, 0.2); /* #141024 */
   --text-color-accent: #d52027;
 }
 
