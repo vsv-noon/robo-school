@@ -71,14 +71,13 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 160%;
-  /* identical to box height, or 29px */
-
   color: rgba(20, 16, 36, 0.7);
 }
 
 .tabs-control {
+  height: 46px;
   font-size: 20px;
-  line-height: 360%;
+  /* line-height: 360%; */
   padding-left: 0;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(20, 16, 36, 0.11);
@@ -120,7 +119,6 @@
 
 .tab-education ul,
 .tab-experience ul {
-  /* display: flex; */
   flex-direction: column;
   gap: 10px;
   padding-left: 0;
@@ -161,7 +159,6 @@
   }
 
   .span-line:nth-child(2) {
-    /* top: 0; */
     transform: rotate(45deg);
   }
 
@@ -201,6 +198,14 @@
     overflow: hidden;
     transition: all .3s ease-in-out;
   }
+
+  .education-svg {
+    transition: all .3s ease-in-out;
+  }
+
+  .education-svg-open {
+    transform: rotate(180deg);
+  }
   
   .control-item.active {
     color: #fff;
@@ -208,7 +213,6 @@
   }
 
   .tabs-container {
-    /* height: 180px; */
     max-height: 230px;
   }
 

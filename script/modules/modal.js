@@ -133,7 +133,7 @@ const fillPopupFields = (currentName) => {
       let thisCard = jsonData.filter((value) => value.name == currentName)[0];
 
       // console.log(thisCard);
-
+      document.querySelector('.education-text').innerText = 'Образование';
       document.querySelector(".img-modal").src = thisCard.img;
       document.querySelector(".name-modal").innerHTML = thisCard.name;
       document.querySelector(".occupation-modal").innerHTML =
@@ -225,11 +225,15 @@ tabsControlButton.addEventListener("click", () => {
   if (window.innerWidth <= 500) {
     if (
       tabsControlButton.style.height ===
-      tabsControlButton.scrollHeight + "px"
+      tabsControlButton.scrollHeight + "px"      
     ) {
       tabsControlButton.style.height = 47 + "px";
+      document.querySelector('.education-svg').classList.remove('education-svg-open');
     } else {
+      document.querySelector('.education-text').innerText = 'Образование';
+
       tabsControlButton.style.height = tabsControlButton.scrollHeight + "px";
+      document.querySelector('.education-svg').classList.add('education-svg-open');
     }
   }
 });
