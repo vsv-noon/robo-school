@@ -193,7 +193,7 @@ const showPopup = () => {
       fillPopupFields(target.children[1].textContent);
 
       // createElementPopup(target.children[1].textContent);
-      // console.log(target.children[1].textContent);
+      console.log(target.children[1].textContent);
 
       document.querySelector(".education").classList.add("active");
       document.querySelector(".experience").classList.remove("active");

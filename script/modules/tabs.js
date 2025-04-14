@@ -15,13 +15,20 @@ const tabs = () => {
           el.classList.add('active');
           document.querySelector(`.tab-${el.getAttribute('data-skills')}`).style.display = 'block';
 
-          console.log(el.innerText)
+          // console.log(el.innerText)
           if (window.innerWidth <= 500) {
             document.querySelector('.education-text').innerText = el.innerText;
           }
         }
       })
     })
+  })
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 500) {
+      document.querySelector('.education-text').innerText = 'Образование';
+
+    }
   })
 }
 
