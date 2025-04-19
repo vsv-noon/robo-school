@@ -86,7 +86,7 @@
 .tabs-container {
   /* margin-bottom: 40px; */
   height: 330px;
-  overflow-y: scroll;
+  overflow-y: auto;
   /* scrollbar-width: thin; */
 }
 
@@ -118,7 +118,8 @@
 }
 
 .tab-education ul,
-.tab-experience ul {
+.tab-experience ul,
+.ul-rewards {
   flex-direction: column;
   gap: 10px;
   padding-left: 0;
@@ -197,6 +198,16 @@
     line-height: 46px;
     overflow: hidden;
     transition: all .3s ease-in-out;
+  }
+
+  .education {  
+    gap: 10px;
+  }
+
+  .control-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .education-svg {

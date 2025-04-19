@@ -1,35 +1,56 @@
 const tabs = () => {
-  const tabsControlButton = document.querySelectorAll('.control-item');
-  const tabsContainer = document.querySelector('.tabs-container');
+  document.addEventListener("click", (event) => {
+    let target = event.target.closest(".control-item");
 
+    if (target) {
+      document.querySelectorAll(".control-item").forEach((el) => {
+        el.classList.remove("active");
+        document.querySelector(
+          `.tab-${el.getAttribute("data-skills")}`
+        ).style.display = "none";
+      });
 
-  tabsControlButton.forEach((el) => {
-    el.addEventListener('click', (event) => {
-      const skills = event.currentTarget.dataset.skills;
+      target.classList.add("active");
+      document.querySelector(
+        `.tab-${target.getAttribute("data-skills")}`
+      ).style.display = "block";
 
-      tabsControlButton.forEach((el) => {
-        el.classList.remove('active');
-        document.querySelector(`.tab-${el.getAttribute('data-skills')}`).style.display = 'none';
-        
-        if (el.getAttribute('data-skills') == skills) {
-          el.classList.add('active');
-          document.querySelector(`.tab-${el.getAttribute('data-skills')}`).style.display = 'block';
+      if (window.innerWidth <= 500) {
+        document.querySelector(".education-text").innerText = target.innerText;
+        if (
+          target.parentNode.style.height ===
+          target.parentNode.scrollHeight + "px"
+        ) {
+          target.parentNode.style.height = 47 + "px";
+          document
+            .querySelector(".education-svg")
+            .classList.remove("education-svg-open");
+        } else {
+          document.querySelector(".education-text").innerText = "Образование";
 
-          // console.log(el.innerText)
-          if (window.innerWidth <= 500) {
-            document.querySelector('.education-text').innerText = el.innerText;
-          }
+          target.parentNode.style.height =
+            target.parentNode.scrollHeight + "px";
+          document
+            .querySelector(".education-svg")
+            .classList.add("education-svg-open");
         }
-      })
-    })
-  })
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 500) {
-      document.querySelector('.education-text').innerText = 'Образование';
-
+      }
     }
-  })
-}
+  });
+
+  window.addEventListener("resize", () => {
+    document.querySelectorAll(".control-item").forEach((el) => {
+      el.classList.remove("active");
+      document.querySelector(
+        `.tab-${el.getAttribute("data-skills")}`
+      ).style.display = "none";
+    });
+    document.querySelector(".education").classList.add("active");
+    document.querySelector(
+      `.tab-${document.querySelector(".education").getAttribute("data-skills")}`
+    ).style.display = "block";
+    document.querySelector(".education-text").innerText = "Образование";
+  });
+};
 
 export default tabs;

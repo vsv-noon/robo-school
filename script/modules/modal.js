@@ -17,30 +17,51 @@ const scroll = getScrollbarWidth();
 
 const createElementPopup = (currentName) => {
   modalCard.classList.add("modal");
+  modalCard.innerHTML = "";
 
   fetch("./data/trainers.json")
     .then((response) => response.json())
     .then((jsonData) => {
       let thisCard = jsonData.filter((value) => value.name == currentName)[0];
 
-      modalCard.innerHTML = `
-      <button class="modal-close-btn">
-        <span class="span-text">Закрыть</span>
+      modalCloseButton();
+      descriptionModal(thisCard);
+      infoModal(thisCard);
+      tabEducation(thisCard);
+      tabExperience(thisCard);
+      tabRewards(thisCard);
+    });
 
-        <span class="span-line"></span>
-        <span class="span-line"></span>
-      </button>
-      <div class="description-modal">
-        <img class="img-modal" src="${thisCard.img}"
-          alt="Марина Орлова"
-        />
-        <div class="text-description-modal">
-          <h4 class="name-modal">${thisCard.name}</h4>
-          <p class="occupation-modal">${thisCard.occupation}</p>
-          <div class="icons-container">
+  document.body.appendChild(modalCard);
+};
 
-            <a href="/">
-              <svg
+function descriptionModal(thisCard) {
+  const descriptionModal = document.createElement("div");
+  descriptionModal.classList.add("description-modal");
+
+  const imgModal = document.createElement("img");
+  imgModal.classList.add("img-modal");
+  imgModal.src = thisCard.img;
+  imgModal.setAttribute("alt", thisCard.name);
+
+  const textDescriptionModal = document.createElement("div");
+  textDescriptionModal.classList.add("text-description-modal");
+
+  const h4NameModal = document.createElement("h4");
+  h4NameModal.classList.add("name-modal");
+  h4NameModal.innerText = thisCard.name;
+
+  const occupationModal = document.createElement("p");
+  occupationModal.classList.add("occupation-modal");
+  occupationModal.innerText = thisCard.occupation;
+
+  const iconsContainer = document.createElement("div");
+  iconsContainer.classList.add("icons-container");
+
+  const telegramLink = document.createElement("a");
+  telegramLink.setAttribute("href", "/");
+  telegramLink.innerHTML = `
+            <svg
                 width="30px"
                 height="30px"
                 viewBox="0 0 256 256"
@@ -67,118 +88,235 @@ const createElementPopup = (currentName) => {
                     fill="#B5CFE4"
                   ></path>
                 </g>
-              </svg>
-            </a>
+              </svg>`;
 
-            <a href="/">
-              <svg width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="512" cy="512" r="512" style="fill:#2787f5"/>
+  const vkLInk = document.createElement("a");
+  vkLInk.setAttribute("href", "/");
+  vkLInk.innerHTML = `
+      <svg width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="512" cy="512" r="512" style="fill:#2787f5"/>
                 <path d="M585.83 271.5H438.17c-134.76 0-166.67 31.91-166.67 166.67v147.66c0 134.76 31.91 166.67 166.67 166.67h147.66c134.76 0 166.67-31.91 166.67-166.67V438.17c0-134.76-32.25-166.67-166.67-166.67zm74 343.18h-35c-13.24 0-17.31-10.52-41.07-34.62-20.71-20-29.87-22.74-35-22.74-7.13 0-9.17 2-9.17 11.88v31.57c0 8.49-2.72 13.58-25.12 13.58-37 0-78.07-22.4-106.93-64.16-43.45-61.1-55.33-106.93-55.33-116.43 0-5.09 2-9.84 11.88-9.84h35c8.83 0 12.22 4.07 15.61 13.58 17.31 49.9 46.17 93.69 58 93.69 4.41 0 6.45-2 6.45-13.24v-51.6c-1.36-23.76-13.92-25.8-13.92-34.28 0-4.07 3.39-8.15 8.83-8.15h55c7.47 0 10.18 4.07 10.18 12.9v69.58c0 7.47 3.39 10.18 5.43 10.18 4.41 0 8.15-2.72 16.29-10.86 25.12-28.17 43.11-71.62 43.11-71.62 2.38-5.09 6.45-9.84 15.28-9.84h35c10.52 0 12.9 5.43 10.52 12.9-4.41 20.37-47.18 80.79-47.18 80.79-3.73 6.11-5.09 8.83 0 15.61 3.73 5.09 16 15.61 24.1 25.12 14.94 17 26.48 31.23 29.53 41.07 3.45 9.84-1.65 14.93-11.49 14.93z" style="fill:#fff"/>
              </svg>
-            </a>
-
-          </div>
-        </div>
-      </div>
-      <div class="info-modal">
-        <ul class="tabs-control">
-          <li class="control-item active" data-skills="education">
-            Образование
-          </li>
-          <li class="control-item" data-skills="experience">Опыт работы</li>
-          <li class="control-item" data-skills="reward">Награды</li>
-        </ul>
-        <div class="tabs-container">
-          <div class="tab-education">
-            <ul>
-              <li class="study-date">${thisCard.education["date start"]} — ${thisCard.education["date finish"]}</li>
-              <li class="university">
-              ${thisCard.education.university}
-              </li>
-              <li class="faculty">Факультет: ${thisCard.education.faculty}</li>
-              <li class="speciality">Специальность: ${thisCard.education.speciality}</li>
-              <li class="study-form">Форма обучения: ${thisCard.education["study form"]}</li>
-            </ul>
-            <h5 class="h5-modal">Курсы и тренинги</h5>
-            <ul>
-              <li>Ноябрь 2020 — Февраль 2021</li>
-              <li>Программа дополнительного образования «3D Моделирование»</li>
-              <li>
-                Место проведения: Институт дополнительного образования «Политех»
-              </li>
-            </ul>
-
-
-            <ul>
-              <li>Октябрь 2019 — Декабрь 2019</li>
-              <li>Программа дополнительного образования «3D Моделирование»</li>
-              <li>
-                Место проведения: Институт дополнительного образования «Политех»
-              </li>
-            </ul>
-          </div>
-          <div class="tab-experience"></div>
-          <div class="tab-rewards"></div>
-        </div>
-      
     `;
+
+  textDescriptionModal.appendChild(h4NameModal);
+  textDescriptionModal.appendChild(occupationModal);
+  textDescriptionModal.appendChild(iconsContainer);
+  iconsContainer.appendChild(telegramLink);
+  iconsContainer.appendChild(vkLInk);
+
+  descriptionModal.appendChild(imgModal);
+  descriptionModal.appendChild(textDescriptionModal);
+
+  modalCard.appendChild(descriptionModal);
+}
+
+function modalCloseButton() {
+  const modalCloseBtn = document.createElement("button");
+  modalCloseBtn.classList.add("modal-close-btn");
+
+  const spanText = document.createElement("span");
+  spanText.classList.add("span-text");
+  spanText.innerText = "Закрыть";
+
+  const spanLineFirst = document.createElement("span");
+  spanLineFirst.classList.add("span-line");
+
+  const spanLineSecond = document.createElement("span");
+  spanLineSecond.classList.add("span-line");
+
+  modalCloseBtn.appendChild(spanText);
+  modalCloseBtn.appendChild(spanLineFirst);
+  modalCloseBtn.appendChild(spanLineSecond);
+  document.querySelector(".modal").appendChild(modalCloseBtn);
+}
+
+function infoModal(thisCard) {
+  const infoModal = document.createElement("div");
+  infoModal.classList.add("info-modal");
+
+  const tabsContainer = document.createElement("div");
+  tabsContainer.classList.add("tabs-container");
+
+  const tabsControl = document.createElement("ul");
+  tabsControl.classList.add("tabs-control");
+
+  const controlItemEducation = document.createElement("li");
+  controlItemEducation.classList.add("control-item", "education", "active");
+  controlItemEducation.setAttribute("data-skills", "education");
+
+  const controlItemEducationSpan = document.createElement("span");
+  controlItemEducationSpan.classList.add("tabs-control-text", "education-text");
+  controlItemEducationSpan.innerText = "Образование";
+
+  const controlItemEducationSpanSVG = document.createElement("span");
+  controlItemEducationSpanSVG.classList.add("education-span-svg");
+
+  controlItemEducationSpanSVG.innerHTML = `<svg
+      class="education-svg"
+      width="6"
+      height="6"
+      viewBox="0 0 6 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.52875 4.92957C2.50458 4.90603 2.40125 4.81714 2.31625 4.73433C1.78167 4.24886 0.906667 2.98242 0.639583 2.31957C0.596667 2.21891 0.505833 1.9644 0.5 1.82842C0.5 1.69812 0.53 1.57392 0.590833 1.45539C0.675833 1.30764 0.809583 1.18911 0.9675 1.12417C1.07708 1.08236 1.405 1.01741 1.41083 1.01741C1.76958 0.952468 2.3525 0.916748 2.99667 0.916748C3.61042 0.916748 4.16958 0.952468 4.53375 1.00564C4.53958 1.01173 4.94708 1.07668 5.08667 1.14771C5.34167 1.27801 5.5 1.53251 5.5 1.80488V1.82842C5.49375 2.0058 5.33542 2.37884 5.32958 2.37884C5.06208 3.00597 4.23 4.24318 3.67708 4.74042C3.67708 4.74042 3.535 4.88046 3.44625 4.94135C3.31875 5.03633 3.16083 5.08341 3.00292 5.08341C2.82667 5.08341 2.6625 5.03024 2.52875 4.92957"
+        fill="white"
+      />
+    </svg>`;
+
+  const controlItemExperience = document.createElement("li");
+  controlItemExperience.classList.add("control-item", "experience");
+
+  if (!thisCard.experience) {
+    controlItemExperience.classList.add("inactive");
+  }
+
+  controlItemExperience.setAttribute("data-skills", "experience");
+
+  const controlItemExperienceSpan = document.createElement("span");
+  controlItemExperienceSpan.classList.add("tabs-control-text");
+  controlItemExperienceSpan.innerText = "Опыт работы";
+
+  const controlItemRewards = document.createElement("li");
+  controlItemRewards.classList.add("control-item", "rewards");
+
+  if (!thisCard.rewards) {
+    controlItemRewards.classList.add("inactive");
+  }
+
+  controlItemRewards.setAttribute("data-skills", "rewards");
+
+  const controlItemRewardsSpan = document.createElement("span");
+  controlItemRewardsSpan.classList.add("tabs-control-text");
+  controlItemRewardsSpan.innerText = "Награды";
+
+  tabsControl.appendChild(controlItemEducation);
+  tabsControl.appendChild(controlItemExperience);
+  tabsControl.appendChild(controlItemRewards);
+
+  infoModal.appendChild(tabsControl);
+  infoModal.appendChild(tabsContainer);
+
+  controlItemEducation.appendChild(controlItemEducationSpan);
+  controlItemEducation.appendChild(controlItemEducationSpanSVG);
+
+  controlItemExperience.appendChild(controlItemExperienceSpan);
+
+  controlItemRewards.appendChild(controlItemRewardsSpan);
+
+  document.querySelector(".modal").appendChild(infoModal);
+}
+
+function tabEducation(thisCard) {
+  const tabEducation = document.createElement("div");
+  tabEducation.classList.add("tab-education");
+  const ul = document.createElement("ul");
+
+  const studyDate = document.createElement("li");
+  studyDate.classList.add("study-date");
+  studyDate.innerText = `${thisCard.education["date start"]} — ${thisCard.education["date finish"]}`;
+
+  const university = document.createElement("li");
+  university.classList.add("university");
+  university.innerText = thisCard.education.university;
+
+  const faculty = document.createElement("li");
+  faculty.classList.add("faculty");
+  faculty.innerText = `Факультет: ${thisCard.education.faculty}`;
+
+  const speciality = document.createElement("li");
+  speciality.classList.add("speciality");
+  speciality.innerText = `Специальность: ${thisCard.education.speciality}`;
+
+  const studyForm = document.createElement("li");
+  studyForm.classList.add("study-form");
+  studyForm.innerText = `Специальность: ${thisCard.education.speciality}`;
+
+  ul.appendChild(studyDate);
+  ul.appendChild(university);
+  ul.appendChild(faculty);
+  ul.appendChild(studyForm);
+  tabEducation.appendChild(ul);
+
+  document.querySelector(".tabs-container").appendChild(tabEducation);
+  courses(thisCard);
+}
+
+function courses(thisCard) {
+  const h5Modal = document.createElement("h5");
+  h5Modal.classList.add("h5-modal");
+  h5Modal.innerText = "Курсы и тренинги";
+  const coursesList = document.createElement("ul");
+
+  if (thisCard.courses) {
+    thisCard.courses.forEach((el) => {
+      const ul = document.createElement("ul");
+      const date = document.createElement("li");
+      const title = document.createElement("li");
+      const organization = document.createElement("li");
+
+      date.innerText = `${el["date start"]} — ${el["date finish"]}`;
+      title.innerText = el.title;
+      organization.innerText = el.organization;
+      ul.appendChild(date);
+      ul.appendChild(title);
+
+      ul.appendChild(organization);
+
+      coursesList.appendChild(ul);
     });
-  document.body.appendChild(modalCard);
-};
 
-const fillPopupFields = (currentName) => {
-  fetch("./data/trainers.json")
-    .then((response) => response.json())
-    .then((jsonData) => {
-      let thisCard = jsonData.filter((value) => value.name == currentName)[0];
+    document.querySelector(".tab-education").appendChild(h5Modal);
+    document.querySelector(".tab-education").appendChild(coursesList);
+  }
+}
 
-      // console.log(thisCard);
-      document.querySelector('.education-text').innerText = 'Образование';
-      document.querySelector(".img-modal").src = thisCard.img;
-      document.querySelector(".name-modal").innerHTML = thisCard.name;
-      document.querySelector(".occupation-modal").innerHTML =
-        thisCard.occupation;
-      document.querySelector(
-        ".study-date"
-      ).innerHTML = `${thisCard.education["date start"]} — ${thisCard.education["date finish"]}`;
-      document.querySelector(".university").innerHTML =
-        thisCard.education.university;
-      document.querySelector(
-        ".faculty"
-      ).innerHTML = `Факультет: ${thisCard.education.faculty}`;
-      document.querySelector(
-        ".speciality"
-      ).innerHTML = `Специальность: ${thisCard.education.speciality}`;
-      document.querySelector(
-        ".study-form"
-      ).innerHTML = `Форма обучения: ${thisCard.education["study form"]}`;
+function tabExperience(thisCard) {
+  const tabExperience = document.createElement("div");
+  tabExperience.classList.add("tab-experience");
+  tabExperience.style.display = "none";
+  const ul = document.createElement("ul");
+  const workDates = document.createElement("li");
+  workDates.classList.add("wok-dates");
+  workDates.innerText = `${
+    thisCard.experience ? thisCard.experience["date start"] : ""
+  } — ${thisCard.experience ? thisCard.experience["date finish"] : ""}`;
+  const company = document.createElement("li");
+  company.classList.add("company");
+  company.innerText = `${
+    thisCard.experience ? thisCard.experience.company : ""
+  }`;
 
-      if (thisCard.experience) {
-        document.querySelector(".experience").classList.remove("inactive");
-        document.querySelector('.work-dates').innerHTML = `${thisCard.experience['date start']} — ${thisCard.experience['date finish']}`;
-        document.querySelector('.company').innerHTML = thisCard.experience.company;
-      } else {
-        document.querySelector(".experience").classList.add("inactive");
-      }
+  ul.appendChild(workDates);
+  ul.appendChild(company);
+  tabExperience.appendChild(ul);
 
-      if (thisCard.rewards) {
-        document.querySelector(".rewards").classList.remove("inactive");
-        thisCard.rewards.forEach((el) => {
-          document.querySelector(".ul-rewards").innerHTML = "";
-          let item = document.createElement("li");
-          item.classList.add("li-rewards");
-          item.innerHTML = el;
+  document.querySelector(".tabs-container").appendChild(tabExperience);
+}
 
-          document.querySelector(".ul-rewards").appendChild(item);
-        });
-      } else {
-        document.querySelector(".rewards").classList.add("inactive");
-        // document.querySelector(".ul-rewards").innerHTML = "";
-      }
+function tabRewards(thisCard) {
+  const tabRewards = document.createElement("div");
+  tabRewards.classList.add("tab-rewards");
+  tabRewards.style.display = "none";
+  const ulRewards = document.createElement("ul");
+  ulRewards.classList.add("ul-rewards");
+
+  if (thisCard.rewards) {
+    thisCard.rewards.forEach((el) => {
+      const rewardsItem = document.createElement("li");
+      rewardsItem.innerText = el;
+      ulRewards.appendChild(rewardsItem);
     });
-};
+  }
 
-const showPopup = () => {
+  tabRewards.appendChild(ulRewards);
+
+  document.querySelector(".tabs-container").appendChild(tabRewards);
+}
+
+function showPopup() {
   document.addEventListener("click", (event) => {
     let target = event.target.closest(".slide");
     // console.log({target});
@@ -188,22 +326,11 @@ const showPopup = () => {
       document.querySelector(".overlay").classList.add("overlay-on");
       document.body.style.overflow = "hidden";
       document.body.style.marginRight = `${scroll}px`;
-      // document.querySelector(".ul-rewards").innerHTML = "";
 
-      fillPopupFields(target.children[1].textContent);
-
-      // createElementPopup(target.children[1].textContent);
-      console.log(target.children[1].textContent);
-
-      document.querySelector(".education").classList.add("active");
-      document.querySelector(".experience").classList.remove("active");
-      document.querySelector(".rewards").classList.remove("active");
-      document.querySelector(".tab-education").style.display = "block";
-      document.querySelector(".tab-experience").style.display = "none";
-      document.querySelector(".tab-rewards").style.display = "none";
+      createElementPopup(target.children[1].textContent);
     }
   });
-};
+}
 
 document.addEventListener("click", (event) => {
   let target = event.target.closest(".modal-close-btn");
@@ -216,25 +343,6 @@ document.addEventListener("click", (event) => {
       document.body.style.marginRight = "0px";
       document.body.style.overflow = "";
     }, 500);
-  }
-});
-
-const tabsControlButton = document.querySelector(".tabs-control");
-
-tabsControlButton.addEventListener("click", () => {
-  if (window.innerWidth <= 500) {
-    if (
-      tabsControlButton.style.height ===
-      tabsControlButton.scrollHeight + "px"      
-    ) {
-      tabsControlButton.style.height = 47 + "px";
-      document.querySelector('.education-svg').classList.remove('education-svg-open');
-    } else {
-      document.querySelector('.education-text').innerText = 'Образование';
-
-      tabsControlButton.style.height = tabsControlButton.scrollHeight + "px";
-      document.querySelector('.education-svg').classList.add('education-svg-open');
-    }
   }
 });
 
