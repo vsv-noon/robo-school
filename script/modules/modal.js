@@ -15,6 +15,36 @@ const getScrollbarWidth = () => {
 
 const scroll = getScrollbarWidth();
 
+function showPopup() {
+  document.addEventListener("click", (event) => {
+    let target = event.target.closest(".slide");
+    // console.log({target});
+
+    if (target) {
+      modalCard.classList.add("visible");
+      document.querySelector(".overlay").classList.add("overlay-on");
+      document.body.style.overflow = "hidden";
+      document.body.style.marginRight = `${scroll}px`;
+
+      createElementPopup(target.children[1].textContent);
+    }
+  });
+}
+
+document.addEventListener("click", (event) => {
+  let target = event.target.closest(".modal-close-btn");
+  let classes = event.target.classList;
+
+  if (target || classes.contains("overlay-on")) {
+    modalCard.classList.remove("visible");
+    document.querySelector(".overlay").classList.remove("overlay-on");
+    setTimeout(() => {
+      document.body.style.marginRight = "0px";
+      document.body.style.overflow = "";
+    }, 500);
+  }
+});
+
 const createElementPopup = (currentName) => {
   modalCard.classList.add("modal");
   modalCard.innerHTML = "";
@@ -214,30 +244,36 @@ function tabEducation(thisCard) {
   tabEducation.classList.add("tab-education");
   const ul = document.createElement("ul");
 
-  const studyDate = document.createElement("li");
-  studyDate.classList.add("study-date");
-  studyDate.innerText = `${thisCard.education["date start"]} — ${thisCard.education["date finish"]}`;
+  if (thisCard.education) {
+    thisCard.education.forEach((el) => {
+      const studyDate = document.createElement("li");
+      studyDate.classList.add("study-date");
+      studyDate.innerText = `${el["date start"]} — ${el["date finish"]}`;
+    
+      const university = document.createElement("li");
+      university.classList.add("university");
+      university.innerText = el.university;
+    
+      const faculty = document.createElement("li");
+      faculty.classList.add("faculty");
+      faculty.innerText = `Факультет: ${el.faculty}`;
+    
+      const speciality = document.createElement("li");
+      speciality.classList.add("speciality");
+      speciality.innerText = `Специальность: ${el.speciality}`;
+    
+      const studyForm = document.createElement("li");
+      studyForm.classList.add("study-form");
+      studyForm.innerText = `Форма обучения: ${el["study form"]}`;
+    
+      ul.appendChild(studyDate);
+      ul.appendChild(university);
+      ul.appendChild(faculty);
+      ul.appendChild(speciality);
+      ul.appendChild(studyForm);
+    })
+  }
 
-  const university = document.createElement("li");
-  university.classList.add("university");
-  university.innerText = thisCard.education.university;
-
-  const faculty = document.createElement("li");
-  faculty.classList.add("faculty");
-  faculty.innerText = `Факультет: ${thisCard.education.faculty}`;
-
-  const speciality = document.createElement("li");
-  speciality.classList.add("speciality");
-  speciality.innerText = `Специальность: ${thisCard.education.speciality}`;
-
-  const studyForm = document.createElement("li");
-  studyForm.classList.add("study-form");
-  studyForm.innerText = `Специальность: ${thisCard.education.speciality}`;
-
-  ul.appendChild(studyDate);
-  ul.appendChild(university);
-  ul.appendChild(faculty);
-  ul.appendChild(studyForm);
   tabEducation.appendChild(ul);
 
   document.querySelector(".tabs-container").appendChild(tabEducation);
@@ -278,19 +314,23 @@ function tabExperience(thisCard) {
   tabExperience.classList.add("tab-experience");
   tabExperience.style.display = "none";
   const ul = document.createElement("ul");
-  const workDates = document.createElement("li");
-  workDates.classList.add("wok-dates");
-  workDates.innerText = `${
-    thisCard.experience ? thisCard.experience["date start"] : ""
-  } — ${thisCard.experience ? thisCard.experience["date finish"] : ""}`;
-  const company = document.createElement("li");
-  company.classList.add("company");
-  company.innerText = `${
-    thisCard.experience ? thisCard.experience.company : ""
-  }`;
 
-  ul.appendChild(workDates);
-  ul.appendChild(company);
+  if (thisCard.experience) {
+    thisCard.experience.forEach((el) => {
+      const workDates = document.createElement("li");
+      workDates.classList.add("wok-dates");
+      workDates.innerText = `${
+        el["date start"]
+      } — ${el["date finish"]}`;
+      const company = document.createElement("li");
+      company.classList.add("company");
+      company.innerText = el.company;
+    
+      ul.appendChild(workDates);
+      ul.appendChild(company);
+    })
+  }
+ 
   tabExperience.appendChild(ul);
 
   document.querySelector(".tabs-container").appendChild(tabExperience);
@@ -315,35 +355,5 @@ function tabRewards(thisCard) {
 
   document.querySelector(".tabs-container").appendChild(tabRewards);
 }
-
-function showPopup() {
-  document.addEventListener("click", (event) => {
-    let target = event.target.closest(".slide");
-    // console.log({target});
-
-    if (target) {
-      modalCard.classList.add("visible");
-      document.querySelector(".overlay").classList.add("overlay-on");
-      document.body.style.overflow = "hidden";
-      document.body.style.marginRight = `${scroll}px`;
-
-      createElementPopup(target.children[1].textContent);
-    }
-  });
-}
-
-document.addEventListener("click", (event) => {
-  let target = event.target.closest(".modal-close-btn");
-  let classes = event.target.classList;
-
-  if (target || classes.contains("overlay-on")) {
-    modalCard.classList.remove("visible");
-    document.querySelector(".overlay").classList.remove("overlay-on");
-    setTimeout(() => {
-      document.body.style.marginRight = "0px";
-      document.body.style.overflow = "";
-    }, 500);
-  }
-});
 
 export { showPopup };
