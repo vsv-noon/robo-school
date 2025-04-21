@@ -45,11 +45,13 @@ const tabs = () => {
         `.tab-${el.getAttribute("data-skills")}`
       ).style.display = "none";
     });
-    document.querySelector(".education").classList.add("active");
-    document.querySelector(
-      `.tab-${document.querySelector(".education").getAttribute("data-skills")}`
-    ).style.display = "block";
-    document.querySelector(".education-text").innerText = "Образование";
+    if (document.querySelector(".education")) {
+      document.querySelector(".education").classList.add("active");
+      document.querySelector(
+        `.tab-${document.querySelector(".education").getAttribute("data-skills")}`
+      ).style.display = "block";
+      document.querySelector(".education-text").innerText = "Образование";
+    }
   });
 };
 

@@ -204,27 +204,36 @@
               Акция действительна до 10 марта 2022 года
             </p>
           </div>
-          <form class="contacts-form" action="">
+          <form id="sendForm" class="contacts-form" action="">
             <input
-              type="text"
-              name=""
               id="name"
+              type="text"
+              name="name"
               placeholder="Имя"
+              minlength="1"
+              maxlength="24"              
+              onkeydown="return/[a-zА-я]/i.test(event.key)"
               autocomplete="off"
+              required
             />
             <input
-              type="text"
-              name=""
               id="phone"
+              type="text"
+              name="phone"
               placeholder="Телефон"
+              title="Введите 11 цифр"
               autocomplete="off"
+              required
             />
             <input
-              type="text"
-              name=""
               id="mail"
+              type="email"
+              name="mail"
               placeholder="E-mail"
+              minlength="1"
+              maxlength="24"
               autocomplete="off"
+              required
             />
             <button class="submit-btn" type="submit">Оформить заявку</button>
           </form>
